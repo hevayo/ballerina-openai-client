@@ -112,7 +112,9 @@ public isolated client class OpenAIClient {
     resource isolated function post images/edits(CreateImageEditRequest payload) returns ImagesResponse|error {
         string resourcePath = string `/images/edits`;
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        // mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyPartsMultipart(payload);
+
         request.setBodyParts(bodyParts);
         ImagesResponse response = check self.clientEp->post(resourcePath, request);
         return response;
@@ -123,7 +125,7 @@ public isolated client class OpenAIClient {
     resource isolated function post images/variations(CreateImageVariationRequest payload) returns ImagesResponse|error {
         string resourcePath = string `/images/variations`;
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyPartsMultipart(payload);
         request.setBodyParts(bodyParts);
         ImagesResponse response = check self.clientEp->post(resourcePath, request);
         return response;
@@ -145,7 +147,7 @@ public isolated client class OpenAIClient {
     resource isolated function post audio/transcriptions(CreateTranscriptionRequest payload) returns CreateTranscriptionResponse|error {
         string resourcePath = string `/audio/transcriptions`;
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyPartsMultipart(payload);
         request.setBodyParts(bodyParts);
         CreateTranscriptionResponse response = check self.clientEp->post(resourcePath, request);
         return response;
@@ -156,7 +158,7 @@ public isolated client class OpenAIClient {
     resource isolated function post audio/translations(CreateTranslationRequest payload) returns CreateTranslationResponse|error {
         string resourcePath = string `/audio/translations`;
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyPartsMultipart(payload);
         request.setBodyParts(bodyParts);
         CreateTranslationResponse response = check self.clientEp->post(resourcePath, request);
         return response;
@@ -191,12 +193,12 @@ public isolated client class OpenAIClient {
     # Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
     #
     # + return - OK 
-    resource isolated function post files(CreateFileRequest payload) returns OpenAIFile|error {
+    resource isolated function post files(CreateFileRequest payload) returns json|error {
         string resourcePath = string `/files`;
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyPartsMultipart(payload);
         request.setBodyParts(bodyParts);
-        OpenAIFile response = check self.clientEp->post(resourcePath, request);
+        json response = check self.clientEp->post(resourcePath, request);
         return response;
     }
     # Returns information about a specific file.

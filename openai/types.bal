@@ -125,9 +125,17 @@ public type CreateSearchResponse record {|
     CreateSearchResponse_data[] data?;
 |};
 
+public type File record {|
+    # The audio file to transcribe, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+    byte[] fileBinary;
+
+    string fileName;
+
+|};
+
 public type CreateTranscriptionRequest record {|
     # The audio file to transcribe, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
-    string file;
+    File file;
     # ID of the model to use. Only `whisper-1` is currently available.
     string model;
     # An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should match the audio language.
@@ -152,7 +160,7 @@ public type CreateModerationResponse_category_scores record {|
 
 public type CreateTranslationRequest record {|
     # The audio file to translate, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
-    string file;
+    File file;
     # ID of the model to use. Only `whisper-1` is currently available.
     string model;
     # An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should be in English.
@@ -550,7 +558,7 @@ public type CreateFileRequest record {|
     # Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
     #
     # If the `purpose` is set to "fine-tune", each line is a JSON record with "prompt" and "completion" fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
-    string file;
+    File file;
     # The intended purpose of the uploaded documents.
     #
     # Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
@@ -568,7 +576,7 @@ public type CreateCompletionResponse record {|
 
 public type CreateImageVariationRequest record {|
     # The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
-    string image;
+    File image;
     # The number of images to generate. Must be between 1 and 10.
     int? n = 1;
     # The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
@@ -588,9 +596,9 @@ public type ChatCompletionResponseMessage record {|
 
 public type CreateImageEditRequest record {|
     # The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
-    string image;
+    File image;
     # An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
-    string mask?;
+    File mask?;
     # A text description of the desired image(s). The maximum length is 1000 characters.
     string prompt;
     # The number of images to generate. Must be between 1 and 10.
@@ -687,7 +695,7 @@ public type CreateFineTuneRequest record {|
     # Additionally, you must upload your file with the purpose `fine-tune`.
     #
     # See the [fine-tuning guide](/docs/guides/fine-tuning/creating-training-data) for more details.
-    string? validation_file = ();
+    string validation_file?;
     # The name of the base model to fine-tune. You can select one of "ada",
     # "babbage", "curie", "davinci", or a fine-tuned model created after 2022-04-21.
     # To learn more about these models, see the
@@ -703,7 +711,7 @@ public type CreateFineTuneRequest record {|
     # ~0.2% of the number of examples in the training set, capped at 256 -
     # in general, we've found that larger batch sizes tend to work better
     # for larger datasets.
-    int? batch_size = ();
+    int batch_size?;
     # The learning rate multiplier to use for training.
     # The fine-tuning learning rate is the original learning rate used for
     # pretraining multiplied by this value.
@@ -713,7 +721,7 @@ public type CreateFineTuneRequest record {|
     # perform better with larger batch sizes). We recommend experimenting
     # with values in the range 0.02 to 0.2 to see what produces the best
     # results.
-    decimal? learning_rate_multiplier = ();
+    decimal learning_rate_multiplier?;
     # The weight to use for loss on the prompt tokens. This controls how
     # much the model tries to learn to generate the prompt (as compared
     # to the completion which always has a weight of 1.0), and can add
@@ -735,12 +743,12 @@ public type CreateFineTuneRequest record {|
     # The number of classes in a classification task.
     #
     # This parameter is required for multiclass classification.
-    int? classification_n_classes = ();
+    int classification_n_classes?;
     # The positive class in binary classification.
     #
     # This parameter is needed to generate precision, recall, and F1
     # metrics when doing binary classification.
-    string? classification_positive_class = ();
+    string classification_positive_class?;
     # If this is provided, we calculate F-beta scores at the specified
     # beta values. The F-beta score is a generalization of F-1 score.
     # This is only used for binary classification.
@@ -749,11 +757,11 @@ public type CreateFineTuneRequest record {|
     # given the same weight. A larger beta score puts more weight on
     # recall and less on precision. A smaller beta score puts more weight
     # on precision and less on recall.
-    decimal[]? classification_betas = ();
+    decimal[] classification_betas?;
     # A string of up to 40 characters that will be added to your fine-tuned model name.
     #
     # For example, a `suffix` of "custom-model-name" would produce a model name like `ada:ft-your-org:custom-model-name-2022-02-15-04-21-04`.
-    string? suffix = ();
+    string suffix?;
 |};
 
 public type Model record {|

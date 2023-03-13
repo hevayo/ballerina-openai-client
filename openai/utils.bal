@@ -1,5 +1,6 @@
 import ballerina/url;
 import ballerina/mime;
+import ballerina/io;
 
 type SimpleBasicType string|boolean|int|float|decimal;
 
@@ -222,6 +223,56 @@ returns mime:Entity[]|error {
                 }
             }
         }
+        entities.push(entity);
+    }
+    return entities;
+}
+
+isolated function getFileExtension(string filePath)
+returns string|error {
+
+    int? index = filePath.lastIndexOf(".");
+    if index is int {
+        if (index != -1) {
+            string fileExtension = filePath.substring(index + 1);
+            io:println("File extension: ", fileExtension);
+            return fileExtension;
+        } else {
+            return error("No file extension found. Invalid file format. Supported formats: ['m4a', 'mp3', 'webm', 'mp4', 'mpga', 'wav', 'mpeg']");
+        }
+    }
+    else {
+        return error("No file extension found. Invalid file format. Supported formats: ['m4a', 'mp3', 'webm', 'mp4', 'mpga', 'wav', 'mpeg']");
+    }
+}
+
+isolated function createBodyPartsMultipart(record {|anydata...;|} anyRecord)
+returns mime:Entity[]|error {
+    mime:Entity[] entities = [];
+    foreach [string, anydata] [key, value] in anyRecord.entries() {
+        // io:println(key);
+        // if !(value is File) {
+        //     io:println(value);
+        // }
+
+        mime:Entity entity = new mime:Entity();
+        if value is File {
+            entity.setContentDisposition(mime:getContentDispositionObject(string `form-data; name=${key};  filename=${value.fileName}`));
+            string|error fileExtensionResult = getFileExtension(value.fileName);
+            if fileExtensionResult is string {
+                entity.setByteArray(value.fileBinary, string `audio/${fileExtensionResult}`);
+            }
+            else {
+                return fileExtensionResult;
+            }
+
+        } else if value is SimpleBasicType|SimpleBasicType[] {
+            entity.setContentDisposition(mime:getContentDispositionObject(string `form-data; name=${key};`));
+            entity.setBody(value.toString());
+        } else if value is record {}|record {}[] {
+            entity.setJson(value.toJson());
+        }
+
         entities.push(entity);
     }
     return entities;
