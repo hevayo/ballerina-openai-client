@@ -3123,7 +3123,6 @@ components:
 
             See the [fine-tuning guide](/docs/guides/fine-tuning/creating-training-data) for more details.
           type: string
-          nullable: true
           example: "file-XjSREls59WBbvgSzJSVWxMCa"
         model:
           description: |
@@ -3152,7 +3151,6 @@ components:
             for larger datasets.
 
           type: integer
-          nullable: true
         learning_rate_multiplier:
           description: |
             The learning rate multiplier to use for training.
@@ -3166,7 +3164,6 @@ components:
             results.
 
           type: number
-          nullable: true
         prompt_loss_weight:
           description: |
             The weight to use for loss on the prompt tokens. This controls how
@@ -3199,7 +3196,6 @@ components:
 
             This parameter is required for multiclass classification.
           type: integer
-          nullable: true
         classification_positive_class:
           description: |
             The positive class in binary classification.
@@ -3207,7 +3203,6 @@ components:
             This parameter is needed to generate precision, recall, and F1
             metrics when doing binary classification.
           type: string
-          nullable: true
         classification_betas:
           description: |
             If this is provided, we calculate F-beta scores at the specified
@@ -3222,8 +3217,6 @@ components:
           items:
             type: number
           example: [0.6, 1, 1.5, 2]
-
-          nullable: true
         suffix:
           description: |
             A string of up to 40 characters that will be added to your fine-tuned model name.
@@ -3232,8 +3225,6 @@ components:
           type: string
           minLength: 1
           maxLength: 40
-
-          nullable: true
       required:
         - training_file
 
