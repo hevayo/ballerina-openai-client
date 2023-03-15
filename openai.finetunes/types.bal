@@ -99,7 +99,7 @@ public type OpenAIFile record {|
     string filename;
     string purpose;
     string status?;
-    record {} status_details?;
+    record {}? status_details?;
 |};
 
 public type DeleteModelResponse record {|

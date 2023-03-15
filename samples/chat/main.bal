@@ -1,5 +1,5 @@
 import ballerina/io;
-import ballerinax/openai.gpt3;
+import ballerinax/openai.chat;
 
 configurable string openAIKey = ?;
 
@@ -8,18 +8,18 @@ public function main(string[] arg) returns error? {
         io:println("Please provide a message to generate a response, e.g., 'bal run -- \"Ballerina is great!\"'");
         return;
     }
-    gpt3:Client gpt3Client = check new ({
+    chat:Client chatClient = check new ({
         auth: {
             token: openAIKey
         }
     });
 
-    gpt3:CreateCompletionRequest req = {
-        model: "text-davinci-003",
-        prompt: arg[0]
+    chat:CreateChatCompletionRequest req = {
+        model: "gpt-3.5-turbo",
+        messages: [{"role": "user", "content": arg[0]}]
     };
-    gpt3:CreateCompletionResponse|error unionResult = check gpt3Client->/completions.post(req);
-    if unionResult is gpt3:CreateCompletionResponse {
+    chat:CreateChatCompletionResponse|error unionResult = check chatClient->/chat/completions.post(req);
+    if unionResult is chat:CreateChatCompletionResponse {
         io:println(unionResult);
     } else {
         io:println(unionResult);

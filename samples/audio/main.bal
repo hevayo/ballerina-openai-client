@@ -1,21 +1,21 @@
 import ballerina/io;
-import ballerinax/openai.whisper;
+import ballerinax/openai.audio;
 
 configurable string openAIKey = ?;
 
 public function main() returns error? {
-    whisper:Client whisperClient = check new ({
+    audio:Client audioClient = check new ({
         auth: {
             token: openAIKey
         }
     });
 
-    whisper:CreateTranscriptionRequest req = {
+    audio:CreateTranscriptionRequest req = {
         file: {fileContent: check io:fileReadBytes("sample.mp3"), fileName: "sample.mp3"},
         model: "whisper-1"
     };
-    whisper:CreateTranscriptionResponse|error unionResult = check whisperClient->/audio/transcriptions.post(req);
-    if unionResult is whisper:CreateTranscriptionResponse {
+    audio:CreateTranscriptionResponse|error unionResult = check audioClient->/audio/transcriptions.post(req);
+    if unionResult is audio:CreateTranscriptionResponse {
         io:println(unionResult.text);
     } else {
         io:println(unionResult);
