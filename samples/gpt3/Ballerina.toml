@@ -1,0 +1,11 @@
+[package]
+org = "samples"
+name = "gpt3"
+version = "0.1.0"
+distribution = "2201.4.0"
+
+[[dependency]]
+org = "ballerinax"
+name = "openai.gpt3"
+version = "0.1.0"
+repository = "local"
