@@ -3466,6 +3466,13 @@ components:
           type: integer
         owned_by:
           type: string
+        permission:
+          type: array
+          items: {}
+        root:
+          type: string
+        parent:
+          type: string
       required:
         - id
         - object
