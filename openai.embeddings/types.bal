@@ -59,43 +59,32 @@ public type ProxyConfig record {|
     string password = "";
 |};
 
-public type CreateModerationResponse_category_scores record {|
-    decimal hate;
-    decimal 'hate\/threatening;
-    decimal 'self\-harm;
-    decimal sexual;
-    decimal 'sexual\/minors;
-    decimal violence;
-    decimal 'violence\/graphic;
-|};
+@constraint:Array {minLength: 1}
+public type InputItemsArray int[];
 
-public type CreateModerationResponse_categories record {|
-    boolean hate;
-    boolean 'hate\/threatening;
-    boolean 'self\-harm;
-    boolean sexual;
-    boolean 'sexual\/minors;
-    boolean violence;
-    boolean 'violence\/graphic;
-|};
-
-public type CreateModerationResponse record {|
-    string id;
+public type CreateEmbeddingResponse record {|
+    string 'object;
     string model;
-    CreateModerationResponse_results[] results;
+    CreateEmbeddingResponse_data[] data;
+    CreateEmbeddingResponse_usage usage;
 |};
 
-public type CreateModerationResponse_results record {|
-    boolean flagged;
-    CreateModerationResponse_categories categories;
-    CreateModerationResponse_category_scores category_scores;
+public type CreateEmbeddingRequest record {|
+    # ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
+    string model;
+    # Input text to get embeddings for, encoded as a string or array of tokens. To get embeddings for multiple inputs in a single request, pass an array of strings or array of token arrays. Each input must not exceed 8192 tokens in length.
+    string|string[]|int[]|InputItemsArray[] input;
+    # A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+    string user?;
 |};
 
-public type CreateModerationRequest record {|
-    # The input text to classify
-    string|string[] input;
-    # Two content moderations models are available: `text-moderation-stable` and `text-moderation-latest`.
-    # 
-    # The default is `text-moderation-latest` which will be automatically upgraded over time. This ensures you are always using our most accurate model. If you use `text-moderation-stable`, we will provide advanced notice before updating the model. Accuracy of `text-moderation-stable` may be slightly lower than for `text-moderation-latest`.
-    string model = "text-moderation-latest";
+public type CreateEmbeddingResponse_data record {|
+    int index;
+    string 'object;
+    decimal[] embedding;
+|};
+
+public type CreateEmbeddingResponse_usage record {|
+    int prompt_tokens;
+    int total_tokens;
 |};

@@ -60,9 +60,6 @@ public type ProxyConfig record {|
 |};
 
 @constraint:Array {minLength: 1}
-public type InputItemsArray int[];
-
-@constraint:Array {minLength: 1}
 public type PromptItemsArray int[];
 
 public type CreateCompletionResponse_choices record {|
@@ -91,22 +88,6 @@ public type CreateEditRequest record {|
     decimal? top_p = 1;
 |};
 
-public type CreateEmbeddingResponse record {|
-    string 'object;
-    string model;
-    CreateEmbeddingResponse_data[] data;
-    CreateEmbeddingResponse_usage usage;
-|};
-
-public type CreateEmbeddingRequest record {|
-    # ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
-    string model;
-    # Input text to get embeddings for, encoded as a string or array of tokens. To get embeddings for multiple inputs in a single request, pass an array of strings or array of token arrays. Each input must not exceed 8192 tokens in length.
-    string|string[]|int[]|InputItemsArray[] input;
-    # A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
-    string user?;
-|};
-
 public type CreateEditResponse record {|
     string 'object;
     int created;
@@ -114,22 +95,11 @@ public type CreateEditResponse record {|
     CreateCompletionResponse_usage usage;
 |};
 
-public type CreateEmbeddingResponse_data record {|
-    int index;
-    string 'object;
-    decimal[] embedding;
-|};
-
 public type CreateCompletionResponse_logprobs record {|
     string[] tokens?;
     decimal[] token_logprobs?;
     record {}[] top_logprobs?;
     int[] text_offset?;
-|};
-
-public type CreateEmbeddingResponse_usage record {|
-    int prompt_tokens;
-    int total_tokens;
 |};
 
 public type CreateCompletionRequest record {|

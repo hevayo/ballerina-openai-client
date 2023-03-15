@@ -1,6 +1,6 @@
 [package]
 org = "ballerinax"
-name = "openai.chatgpt"
+name = "openai.embeddings"
 version = "0.1.0"
 distribution = "2201.4.0"
 

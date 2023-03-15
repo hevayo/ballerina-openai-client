@@ -1,6 +1,6 @@
 [package]
 org = "ballerinax"
-name = "openai.gpt3"
+name = "openai.chat"
 version = "0.1.0"
 distribution = "2201.4.0"
 

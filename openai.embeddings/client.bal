@@ -35,28 +35,6 @@ public isolated client class Client {
         self.clientEp = httpEp;
         return;
     }
-    # Creates a completion for the provided prompt and parameters
-    #
-    # + return - OK 
-    resource isolated function post completions(CreateCompletionRequest payload) returns CreateCompletionResponse|error {
-        string resourcePath = string `/completions`;
-        http:Request request = new;
-        json jsonBody = check payload.cloneWithType(json);
-        request.setPayload(jsonBody, "application/json");
-        CreateCompletionResponse response = check self.clientEp->post(resourcePath, request);
-        return response;
-    }
-    # Creates a new edit for the provided input, instruction, and parameters.
-    #
-    # + return - OK 
-    resource isolated function post edits(CreateEditRequest payload) returns CreateEditResponse|error {
-        string resourcePath = string `/edits`;
-        http:Request request = new;
-        json jsonBody = check payload.cloneWithType(json);
-        request.setPayload(jsonBody, "application/json");
-        CreateEditResponse response = check self.clientEp->post(resourcePath, request);
-        return response;
-    }
     # Creates an embedding vector representing the input text.
     #
     # + return - OK 

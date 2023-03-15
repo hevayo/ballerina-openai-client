@@ -20,7 +20,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags text
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags text
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -36,7 +36,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags embeddings
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags embeddings
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -52,7 +52,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags finetunes
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags finetunes
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -68,7 +68,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags chat
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags chat
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -84,7 +84,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags images
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags images
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -100,7 +100,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags audio
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags audio
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -116,7 +116,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags moderations
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags moderations
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
