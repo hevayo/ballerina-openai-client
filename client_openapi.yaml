@@ -3457,6 +3457,7 @@ components:
 
     Model:
       title: Model
+      additionalProperties: true
       properties:
         id:
           type: string
@@ -3465,13 +3466,6 @@ components:
         created:
           type: integer
         owned_by:
-          type: string
-        permission:
-          type: array
-          items: {}
-        root:
-          type: string
-        parent:
           type: string
       required:
         - id
