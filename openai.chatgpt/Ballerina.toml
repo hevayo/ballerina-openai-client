@@ -1,6 +1,6 @@
 [package]
 org = "nino"
-name = "fine_tune"
+name = "openai.chatgpt"
 version = "0.1.0"
 distribution = "2201.4.0"
 

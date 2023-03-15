@@ -1,6 +1,6 @@
 [package]
 org = "nino"
-name = "whisper"
+name = "openai.whisper"
 version = "0.1.0"
 distribution = "2201.4.0"
 
