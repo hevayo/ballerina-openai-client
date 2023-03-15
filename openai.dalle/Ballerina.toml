@@ -1,6 +1,6 @@
 [package]
 org = "nino"
-name = "gpt3"
+name = "openai.dalle"
 version = "0.1.0"
 distribution = "2201.4.0"
 
