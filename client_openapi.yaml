@@ -127,7 +127,7 @@ paths:
       operationId: createCompletion
       tags:
         - OpenAI
-        - gpt3
+        - text
       summary: Creates a completion for the provided prompt and parameters
       requestBody:
         required: true
@@ -216,7 +216,7 @@ paths:
       operationId: createChatCompletion
       tags:
         - OpenAI
-        - chatgpt
+        - chat
       summary: Creates a completion for the chat message
       requestBody:
         required: true
@@ -302,7 +302,7 @@ paths:
       operationId: createEdit
       tags:
         - OpenAI
-        - gpt3
+        - text
       summary: Creates a new edit for the provided input, instruction, and parameters.
       requestBody:
         required: true
@@ -379,7 +379,7 @@ paths:
       operationId: createImage
       tags:
         - OpenAI
-        - dalle
+        - images
       summary: Creates an image given a prompt.
       requestBody:
         required: true
@@ -453,7 +453,7 @@ paths:
       operationId: createImageEdit
       tags:
         - OpenAI
-        - dalle
+        - images
       summary: Creates an edited or extended image given an original image and a prompt.
       requestBody:
         required: true
@@ -524,7 +524,7 @@ paths:
       operationId: createImageVariation
       tags:
         - OpenAI
-        - dalle
+        - images
       summary: Creates a variation of a given image.
       requestBody:
         required: true
@@ -589,7 +589,7 @@ paths:
       operationId: createEmbedding
       tags:
         - OpenAI
-        - gpt3
+        - embeddings
       summary: Creates an embedding vector representing the input text.
       requestBody:
         required: true
@@ -667,7 +667,7 @@ paths:
       operationId: createTranscription
       tags:
         - OpenAI
-        - whisper
+        - audio
       summary: Transcribes audio into the input language.
       requestBody:
         required: true
@@ -726,7 +726,7 @@ paths:
       operationId: createTranslation
       tags:
         - OpenAI
-        - whisper
+        - audio
       summary: Translates audio into into English.
       requestBody:
         required: true
@@ -880,7 +880,7 @@ paths:
       operationId: listFiles
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Returns a list of files that belong to the user's organization.
       responses:
         "200":
@@ -935,7 +935,7 @@ paths:
       operationId: createFile
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
 
@@ -997,7 +997,7 @@ paths:
       operationId: deleteFile
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Delete a file.
       parameters:
         - in: path
@@ -1044,7 +1044,7 @@ paths:
       operationId: retrieveFile
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Returns information about a specific file.
       parameters:
         - in: path
@@ -1095,7 +1095,7 @@ paths:
       operationId: downloadFile
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Returns the contents of the specified file
       parameters:
         - in: path
@@ -1362,7 +1362,7 @@ paths:
       operationId: createFineTune
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         Creates a job that fine-tunes a specified model from a given dataset.
 
@@ -1450,7 +1450,7 @@ paths:
       operationId: listFineTunes
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         List your organization's fine-tuning jobs
       responses:
@@ -1508,7 +1508,7 @@ paths:
       operationId: retrieveFineTune
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         Gets info about the fine-tune job.
 
@@ -1625,7 +1625,7 @@ paths:
       operationId: cancelFineTune
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         Immediately cancel a fine-tune job.
       parameters:
@@ -1696,7 +1696,7 @@ paths:
       operationId: listFineTuneEvents
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: |
         Get fine-grained status updates for a fine-tune job.
       parameters:
@@ -1792,7 +1792,7 @@ paths:
       operationId: listModels
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Lists the currently available models, and provides basic information about each one such as the owner and availability.
       responses:
         "200":
@@ -1851,7 +1851,7 @@ paths:
       operationId: retrieveModel
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
       parameters:
         - in: path
@@ -1900,7 +1900,7 @@ paths:
       operationId: deleteModel
       tags:
         - OpenAI
-        - fine-tune
+        - finetunes
       summary: Delete a fine-tuned model. You must have the Owner role in your organization.
       parameters:
         - in: path

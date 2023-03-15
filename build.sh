@@ -12,15 +12,15 @@ if [ "$BAL_HOME" != "" ]; then
     BAL_CMD="$BAL_HOME"/bin/bal
 fi
 
-mkdir -p openai.gpt3
-cd openai.gpt3 # hack to get the ballerina.toml file in the right place, this is a bug in the bal init command
+mkdir -p openai.text
+cd openai.text # hack to get the ballerina.toml file in the right place, this is a bug in the bal init command
 if $REGENERATE; then
     $BAL_CMD init
     sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml # hack to replace the orgname as "ballerinax"
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags gpt3
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags text
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -28,15 +28,15 @@ if $PUBLISH_LOCAL; then
 fi
 cd ../
 
-mkdir -p openai.fine_tune
-cd openai.fine_tune
+mkdir -p openai.embeddings
+cd openai.embeddings # hack to get the ballerina.toml file in the right place, this is a bug in the bal init command
 if $REGENERATE; then
     $BAL_CMD init
-    sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml
+    sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml # hack to replace the orgname as "ballerinax"
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags fine-tune
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags embeddings
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -44,15 +44,15 @@ if $PUBLISH_LOCAL; then
 fi
 cd ../
 
-mkdir -p openai.chatgpt
-cd openai.chatgpt
+mkdir -p openai.finetunes
+cd openai.finetunes
 if $REGENERATE; then
     $BAL_CMD init
     sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags chatgpt
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags finetunes
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -60,15 +60,15 @@ if $PUBLISH_LOCAL; then
 fi
 cd ../
 
-mkdir -p openai.dalle
-cd openai.dalle
+mkdir -p openai.chat
+cd openai.chat
 if $REGENERATE; then
     $BAL_CMD init
     sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags dalle
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags chat
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -76,15 +76,31 @@ if $PUBLISH_LOCAL; then
 fi
 cd ../
 
-mkdir -p openai.whisper
-cd openai.whisper
+mkdir -p openai.images
+cd openai.images
 if $REGENERATE; then
     $BAL_CMD init
     sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags whisper
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags images
+fi
+if $PUBLISH_LOCAL; then
+    $BAL_CMD pack
+    $BAL_CMD push --repository local
+fi
+cd ../
+
+mkdir -p openai.audio
+cd openai.audio
+if $REGENERATE; then
+    $BAL_CMD init
+    sed -i '' -e "s/$USER/ballerinax/g" Ballerina.toml
+    if [ ! -f Package.md ]; then
+        echo "# Client to connect to OpenAI" >Package.md
+    fi
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags audio
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
@@ -100,7 +116,7 @@ if $REGENERATE; then
     if [ ! -f Package.md ]; then
         echo "# Client to connect to OpenAI" >Package.md
     fi
-    $BAL_CMD openapi -i $CONTRACT_PATH --mode client --tags moderations
+    $BAL_CMD openapi -i ../$CONTRACT_PATH --mode client --tags moderations
 fi
 if $PUBLISH_LOCAL; then
     $BAL_CMD pack
