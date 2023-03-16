@@ -1,6 +1,6 @@
 [package]
 license = ["Apache-2.0"]
-keywords = ["AI", "Cost/Paid"]
+keywords = ["AI/OpenAI", "Cost/Paid", "OpenAI embeddings", "GPT-3 embeddings"]
 org = "ballerinax"
 name = "openai.embeddings"
 icon = "icon.png"
