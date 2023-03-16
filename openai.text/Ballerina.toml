@@ -1,6 +1,6 @@
 [package]
 license = ["Apache-2.0"]
-keywords = ["AI/Text", "Cost/Paid"]
+keywords = ["AI", "Cost/Paid"]
 org = "ballerinax"
 name = "openai.text"
 icon = "icon.png"
