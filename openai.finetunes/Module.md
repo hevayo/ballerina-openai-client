@@ -68,6 +68,8 @@ Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
+
+```ballerina
 import ballerinax/openai.finetunes;
 import ballerina/io;
 

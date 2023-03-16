@@ -56,6 +56,8 @@ Create and initialize an `images:Client` with the obtained `apiKey`.
 2. Use the`bal run` command to compile and run the Ballerina program.
 
 ## Sample
+
+```ballerina
 import ballerinax/openai.images;
 import ballerina/io;
 

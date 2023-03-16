@@ -37,7 +37,7 @@ Create and initialize a `finetunes:Client` with the obtained `apiKey`.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+1. Now you can use the operations available within the connector.
 
     Following is an example on fine tuning the GPT-3 ada model:
 
@@ -73,6 +73,8 @@ Create and initialize a `finetunes:Client` with the obtained `apiKey`.
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
+
+```ballerina
 import ballerinax/openai.finetunes;
 import ballerina/io;
 
