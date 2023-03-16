@@ -15,7 +15,6 @@
 // under the License.
 
 import ballerina/http;
-import ballerina/constraint;
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint.
 @display {label: "Connection Config"}
@@ -97,7 +96,7 @@ public type CreateEmbeddingRequest record {|
 public type CreateEmbeddingResponse_data record {|
     int index;
     string 'object;
-    decimal[] embedding;
+    float[] embedding;
 |};
 
 public type CreateEmbeddingResponse_usage record {|
