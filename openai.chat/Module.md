@@ -16,6 +16,7 @@ First, import the `ballerinax/openai.chat` module into the Ballerina project.
 
 ```ballerina
 import ballerinax/openai.chat;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -50,3 +51,29 @@ Create and initialize `chat:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+
+```ballerina
+import ballerinax/openai.chat;
+import ballerina/io;
+
+chat:Client chatClient = check new ({
+    auth: {
+        token: "sk-XXXX"
+    }
+});
+
+public function main(string[] arg) returns error? {
+    chat:CreateChatCompletionRequest req = {
+        model: "gpt-3.5-turbo",
+        messages: [{"role": "user", "content": "What is Ballerina?"}]
+    };
+    chat:CreateChatCompletionResponse|error unionResult = check chatClient->/chat/completions.post(req);
+    if unionResult is chat:CreateChatCompletionResponse {
+        io:println(unionResult);
+    } else {
+        io:println(unionResult);
+    }
+}
+```
