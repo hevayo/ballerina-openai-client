@@ -1,11 +1,4 @@
-Connects to the OpenAI Audio API from Ballerina with the `ballerinax/openai.audio` package.
-
-## Package overview
-The `ballerinax/openai.audio` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Audio API. The connector provides access to state-of-the-art models for speech-to-text transcription and translation. By using the `ballerinax/openai.audio` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
-
-|                             | Version         |
-|-----------------------------|-----------------|
-| OpenAI API                  | 1.2.0           |
+This is a generated connector for the [OpenAI Audio API](https://beta.openai.com/docs/api-reference/audio) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Audio API provides a way to access new speech-to-text AI models developed by OpenAI for a variety of tasks.
 
 ## Prerequisites
 
@@ -27,7 +20,7 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `audio:Client` with the `apiKey` obtained.
+Create and initialize an `audio:Client` with the obtained `apiKey`.
 ```ballerina
     audio:Client audioClient = check new ({
         auth: {
@@ -37,9 +30,9 @@ Create and initialize `audio:Client` with the `apiKey` obtained.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now, you can use the operations available within the connector. 
+1. Now you can use the operations available within the connector. 
 
->**Note:** These operations are in the form of remote operations.
+>**Note:**  The operations are in the form of remote operations.
 
     Following is an example on transcribing audio using the OpenAI Whisper-1 model:
 
@@ -60,7 +53,7 @@ Create and initialize `audio:Client` with the `apiKey` obtained.
     }
     ``` 
 
-2. Use the `bal run` command to compile and run the Ballerina program.
+2. Use `bal run` command to compile and run the Ballerina program.
 
 ## Sample
 
@@ -87,11 +80,3 @@ public function main() returns error? {
     }
 }
 ```
-
-## Report issues
-To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).
-
-## Useful links
-- Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
-- Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
-- Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.

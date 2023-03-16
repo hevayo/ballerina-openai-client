@@ -1,11 +1,4 @@
-Connects to the OpenAI Fine-tunes API from Ballerina with the `ballerinax/openai.finetunes` package.
-
-## Package overview
-The `ballerinax/openai.finetunes` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Fine-tunes API. The connector provides access to fine tuning state-of-the-art models. By using the `ballerinax/openai.finetunes` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
-
-|                             | Version         |
-|-----------------------------|-----------------|
-| OpenAI API                  | 1.2.0           |
+This is a generated connector for the [OpenAI Fine-tunes API](https://beta.openai.com/docs/api-reference/fine-tunes) OpenAPI specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Fine-tunes API provides a way to customize new AI models developed by OpenAI for your specific needs.
 
 ## Prerequisites
 
@@ -27,7 +20,7 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize a `finetunes:Client` with the obtained `apiKey`.
+Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
 ```ballerina
     finetunes:Client finetunesClient = check new ({
         auth: {
@@ -37,7 +30,9 @@ Create and initialize a `finetunes:Client` with the obtained `apiKey`.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+1. Now, you can use the operations available within the connector. 
+
+ >**Note:** that they are in the form of remote operations.
 
     Following is an example on fine tuning the GPT-3 ada model:
 
@@ -108,11 +103,3 @@ public function main() returns error? {
     }
 }
 ```
-
-## Report issues
-To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).
-
-## Useful links
-- Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
-- Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
-- Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.

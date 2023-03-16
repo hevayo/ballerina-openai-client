@@ -1,11 +1,4 @@
-Connects to the OpenAI Embeddings API from Ballerina with the `ballerinax/openai.embeddings` package.
-
-## Package overview
-The `ballerinax/openai.embeddings` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Embeddings API. The connector provides access to state-of-the-art models for embeddings. By using the `ballerinax/openai.embeddings` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
-
-|                             | Version         |
-|-----------------------------|-----------------|
-| OpenAI API                  | 1.2.0           |
+This is a generated connector for the [OpenAI Embeddings API](https://beta.openai.com/docs/api-reference/embeddings) OpenAPI specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Embeddings API provides a way to access embeddings from new AI models developed by OpenAI for a variety of tasks.
 
 ## Prerequisites
 
@@ -37,9 +30,9 @@ Create and initialize an `embeddings:Client` with the obtained `apiKey`.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now, you can use the operations available within the connector.
+1. Now, you can use the operations available within the connector. 
 
-  >**Note:** These operations are in the form of remote operations.
+>**Note:** that they are in the form of remote operations.
 
     Following is an example on obtaining embeddings from GPT-3 ada model:
 
@@ -59,7 +52,7 @@ Create and initialize an `embeddings:Client` with the obtained `apiKey`.
         }
     }
     ``` 
-2. Use the `bal run` command to compile and run the Ballerina program.
+2. Use `bal run` command to compile and run the Ballerina program.
 
 ## Sample
 
@@ -86,11 +79,3 @@ public function main() returns error? {
     }
 }
 ```
-
-## Report issues
-To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).
-
-## Useful links
-- Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
-- Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
-- Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
