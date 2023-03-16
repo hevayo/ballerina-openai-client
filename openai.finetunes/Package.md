@@ -1,6 +1,6 @@
-Connects to the OpenAI Fine-tunes API from Ballerina with `ballerinax/openai.finetunes` package.
+Connects to the OpenAI Fine-tunes API from Ballerina with the `ballerinax/openai.finetunes` package.
 
-## Package Overview
+## Package overview
 The `ballerinax/openai.finetunes` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Fine-tunes API. The connector provides access to fine tuning state-of-the-art models. By using the `ballerinax/openai.finetunes` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
 
 |                             | Version         |
@@ -11,14 +11,14 @@ The `ballerinax/openai.finetunes` package is a [Ballerina](https://ballerina.io/
 
 Before using this connector in your Ballerina application, complete the following:
 
-* Create an [OpenAI Account](https://beta.openai.com/signup/).
+* Create an [OpenAI account](https://beta.openai.com/signup/).
 * Obtain an API key by following [these instructions](https://platform.openai.com/docs/api-reference/authentication).
 
-## Quickstart
+## Quick start
 
 To use the OpenAI Fine-tunes connector in your Ballerina application, update the `.bal` file as follows:
 
-### Step 1: Import connector
+### Step 1: Import the connector
 First, import the `ballerinax/openai.finetunes` module into the Ballerina project.
 
 ```ballerina
@@ -27,7 +27,7 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `finetunes:Client` with the `apiKey` obtained.
+Create and initialize a `finetunes:Client` with the obtained `apiKey`.
 ```ballerina
     finetunes:Client finetunesClient = check new ({
         auth: {
@@ -36,7 +36,7 @@ Create and initialize `finetunes:Client` with the `apiKey` obtained.
     });
 ```
 
-### Step 3: Invoke connector operation
+### Step 3: Invoke the connector operation
 1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
 
     Following is an example on fine tuning the GPT-3 ada model:
@@ -70,7 +70,7 @@ Create and initialize `finetunes:Client` with the `apiKey` obtained.
         }
     }
     ``` 
-2. Use `bal run` command to compile and run the Ballerina program.
+2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
 import ballerinax/openai.finetunes;
@@ -109,10 +109,10 @@ public function main() returns error? {
 }
 ```
 
-## Report Issues
+## Report issues
 To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).
 
-## Useful Links
+## Useful links
 - Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
 - Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
 - Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.

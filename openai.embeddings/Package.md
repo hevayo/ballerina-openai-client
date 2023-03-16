@@ -1,6 +1,6 @@
-Connects to the OpenAI Embeddings API from Ballerina with `ballerinax/openai.embeddings` package.
+Connects to the OpenAI Embeddings API from Ballerina with the `ballerinax/openai.embeddings` package.
 
-## Package Overview
+## Package overview
 The `ballerinax/openai.embeddings` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Embeddings API. The connector provides access to state-of-the-art models for embeddings. By using the `ballerinax/openai.embeddings` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
 
 |                             | Version         |
@@ -11,14 +11,14 @@ The `ballerinax/openai.embeddings` package is a [Ballerina](https://ballerina.io
 
 Before using this connector in your Ballerina application, complete the following:
 
-* Create an [OpenAI Account](https://beta.openai.com/signup/).
+* Create an [OpenAI account](https://beta.openai.com/signup/).
 * Obtain an API key by following [these instructions](https://platform.openai.com/docs/api-reference/authentication).
 
-## Quickstart
+## Quick start
 
 To use the OpenAI Embeddings connector in your Ballerina application, update the `.bal` file as follows:
 
-### Step 1: Import connector
+### Step 1: Import the connector
 First, import the `ballerinax/openai.embeddings` module into the Ballerina project.
 
 ```ballerina
@@ -27,7 +27,7 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `embeddings:Client` with the `apiKey` obtained.
+Create and initialize an `embeddings:Client` with the obtained `apiKey`.
 ```ballerina
     embeddings:Client embeddingsClient = check new ({
         auth: {
@@ -36,8 +36,10 @@ Create and initialize `embeddings:Client` with the `apiKey` obtained.
     });
 ```
 
-### Step 3: Invoke connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+### Step 3: Invoke the connector operation
+1. Now, you can use the operations available within the connector.
+
+  >**Note:** These operations are in the form of remote operations.
 
     Following is an example on obtaining embeddings from GPT-3 ada model:
 
@@ -57,7 +59,7 @@ Create and initialize `embeddings:Client` with the `apiKey` obtained.
         }
     }
     ``` 
-2. Use `bal run` command to compile and run the Ballerina program.
+2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
 
@@ -85,10 +87,10 @@ public function main() returns error? {
 }
 ```
 
-## Report Issues
+## Report issues
 To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).
 
-## Useful Links
+## Useful links
 - Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
 - Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
 - Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
