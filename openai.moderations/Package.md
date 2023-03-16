@@ -1,7 +1,7 @@
 Connects to the OpenAI Moderations API from Ballerina with the `ballerinax/openai.moderations` package.
 
 ## Package overview
-The `ballerinax/openai.moderations` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Moderations API. The connector provides access to state-of-the-art models for Text moderation. By using the `ballerinax/openai.moderations` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
+The `ballerinax/openai.moderations` package is a [Ballerina](https://ballerina.io/) connector for OpenAI's Moderations API. The connector provides access to state-of-the-art models for text moderation. By using the `ballerinax/openai.moderations` package, you can easily integrate OpenAI's advanced AI capabilities into your own Ballerina applications.
 
 |                             | Version         |
 |-----------------------------|-----------------|
@@ -16,7 +16,7 @@ Before using this connector in your Ballerina application, complete the followin
 
 ## Quick start
 
-To use the OpenAI Moderations connector in your Ballerina application, update the `.bal` file as follows:
+To use the OpenAI moderations connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the connector
 First, import the `ballerinax/openai.moderations` module into the Ballerina project.

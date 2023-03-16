@@ -30,7 +30,7 @@ Create and initialize an `images:Client` with the obtained `apiKey`.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+1. Now you can use the operations available within the connector.
 
     Following is an example on generating image using the OpenAI DALL.E model:
 

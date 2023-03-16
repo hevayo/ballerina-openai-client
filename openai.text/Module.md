@@ -1,4 +1,4 @@
-This is a generated connector for [OpenAI Completions API](https://beta.openai.com/docs/api-reference/completions) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Completions API provides a way to access new Text AI models developed by OpenAI for a variety of tasks.
+This is a generated connector for the [OpenAI Completions API](https://beta.openai.com/docs/api-reference/completions) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Completions API provides a way to access new Text AI models developed by OpenAI for a variety of tasks.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ Before using this connector in your Ballerina application, complete the followin
 
 ## Quick start
 
-To use the OpenAI Text connector in your Ballerina application, update the `.bal` file as follows:
+To use the OpenAI text connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the connector
 First, import the `ballerinax/openai.text` module into the Ballerina project.
@@ -30,7 +30,7 @@ Create and initialize a `text:Client` with the obtained `apiKey`.
 ```
 
 ### Step 3: Invoke the connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+1. Now you can use the operations available within the connector.
 
     Following is an example on text completion using the OpenAI Davinci model:
 
