@@ -16,6 +16,7 @@ First, import the `ballerinax/openai.audio` module into the Ballerina project.
 
 ```ballerina
 import ballerinax/openai.audio;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -51,3 +52,29 @@ Create and initialize `audio:Client` with the `apiKey` obtained.
     ``` 
 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+
+```ballerina
+import ballerinax/openai.audio;
+import ballerina/io;
+
+audio:Client audioClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    audio:CreateTranscriptionRequest req = {
+        file: {fileContent: check io:fileReadBytes("sample.mp3"), fileName: "sample.mp3"},
+        model: "whisper-1"
+    };
+    audio:CreateTranscriptionResponse|error unionResult = check audioClient->/audio/transcriptions.post(req);
+    if unionResult is audio:CreateTranscriptionResponse {
+        io:println(unionResult.text);
+    } else {
+        io:println(unionResult);
+    }
+}
+```

@@ -23,6 +23,7 @@ First, import the `ballerinax/openai.images` module into the Ballerina project.
 
 ```ballerina
 import ballerinax/openai.images;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -60,6 +61,33 @@ Create and initialize `images:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+import ballerinax/openai.images;
+import ballerina/io;
+
+images:Client imagesClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    images:CreateImageRequest createImageRequest = {
+        prompt: "A cute baby sea otter",
+        n: 1,
+        size: "256x256",
+        response_format: "url",
+        user: "user-1234"
+    };
+    images:ImagesResponse|error unionResult = check imagesClient->/images/generations.post(createImageRequest);
+    if unionResult is images:ImagesResponse {
+        io:println(unionResult);
+    } else {
+        io:println(unionResult);
+    }
+}
+```
 
 ## Report Issues
 To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).

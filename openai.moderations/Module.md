@@ -16,6 +16,7 @@ First, import the `ballerinax/openai.moderations` module into the Ballerina proj
 
 ```ballerina
 import ballerinax/openai.moderations;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -52,3 +53,29 @@ Create and initialize `moderations:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+import ballerinax/openai.moderations;
+import ballerina/io;
+
+moderations:Client moderationsClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    moderations:CreateModerationRequest createModerationRequest = {
+        input: "I want to kill them.",
+        model: "text-moderation-stable"
+    };
+
+    moderations:CreateModerationResponse|error unionResult = check moderationsClient->/moderations.post(createModerationRequest);
+
+    if unionResult is moderations:CreateModerationResponse {
+        io:println(unionResult);
+    } else {
+        io:println(unionResult);
+    }
+}
+```

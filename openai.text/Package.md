@@ -23,6 +23,7 @@ First, import the `ballerinax/openai.text` module into the Ballerina project.
 
 ```ballerina
 import ballerinax/openai.text;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -57,6 +58,30 @@ Create and initialize `text:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+import ballerinax/openai.text;
+import ballerina/io;
+
+text:Client textClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    text:CreateCompletionRequest createCompletionRequest = {
+        model: "text-davinci-002",
+        prompt: "What is Ballerina?"
+    };
+    text:CreateCompletionResponse|error unionResult = check textClient->/completions.post(createCompletionRequest);
+    if unionResult is text:CreateCompletionResponse {
+        io:println(unionResult);
+    } else {
+        io:println(unionResult);
+    }
+}
+```
 
 ## Report Issues
 To report bugs, request new features, start new discussions, view project boards, etc., visit the [Ballerina Extended Library repository](https://github.com/ballerina-platform/ballerina-extended-library).

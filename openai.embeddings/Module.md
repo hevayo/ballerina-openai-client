@@ -16,6 +16,7 @@ First, import the `ballerinax/openai.embeddings` module into the Ballerina proje
 
 ```ballerina
 import ballerinax/openai.embeddings;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -50,3 +51,29 @@ Create and initialize `embeddings:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+
+```ballerina
+import ballerinax/openai.embeddings;
+import ballerina/io;
+
+embeddings:Client embeddingsClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    embeddings:CreateEmbeddingRequest createEmbeddingRequest = {
+        model: "text-embedding-ada-002",
+        input: "I have bought several of the Vitality canned"
+    };
+    embeddings:CreateEmbeddingResponse|error unionResult = check embeddingsClient->/embeddings.post(createEmbeddingRequest);
+    if unionResult is embeddings:CreateEmbeddingResponse {
+        io:println(unionResult);
+    } else {
+        io:println(unionResult);
+    }
+}
+```

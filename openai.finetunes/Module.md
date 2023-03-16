@@ -16,6 +16,7 @@ First, import the `ballerinax/openai.finetunes` module into the Ballerina projec
 
 ```ballerina
 import ballerinax/openai.finetunes;
+import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
@@ -63,3 +64,40 @@ Create and initialize `finetunes:Client` with the `apiKey` obtained.
     }
     ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
+
+## Sample
+import ballerinax/openai.finetunes;
+import ballerina/io;
+
+finetunes:Client finetunesClient = check new ({
+    auth: {
+        token: "sk-XXXXXXXXX"
+    }
+});
+
+public function main() returns error? {
+    finetunes:CreateFileRequest req = {
+        file: {fileContent: check io:fileReadBytes("sample.jsonl"), fileName: "sample.jsonl"},
+        purpose: "fine-tune"
+    };
+    finetunes:OpenAIFile|error fineTuneResult = check finetunesClient->/files.post(req);
+    if fineTuneResult is finetunes:OpenAIFile {
+        string fileID = fineTuneResult.id;
+
+        finetunes:CreateFineTuneRequest createFineTuneRequest = {
+            model: "ada",
+            training_file: fileId
+        };
+
+        finetunes:FineTune|error unionResult = check finetunesClient->/fine\-tunes.post(createFineTuneRequest);
+
+        if unionResult is finetunes:FineTune {
+            io:println(unionResult.id);
+        } else {
+            io:println(unionResult);
+        }
+    } else {
+        io:println(fineTuneResult);
+    }
+}
+```
