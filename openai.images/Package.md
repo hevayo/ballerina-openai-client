@@ -5,7 +5,6 @@ The `ballerinax/openai.images` package is a [Ballerina](https://ballerina.io/) c
 
 |                             | Version         |
 |-----------------------------|-----------------|
-| Ballerina Language          | Swan Lake Alpha |
 | OpenAI API                  | 1.2.0           |
 
 ## Report Issues

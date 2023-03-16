@@ -5,7 +5,6 @@ The `ballerinax/openai.audio` package is a [Ballerina](https://ballerina.io/) co
 
 |                             | Version         |
 |-----------------------------|-----------------|
-| Ballerina Language          | Swan Lake Alpha |
 | OpenAI API                  | 1.2.0           |
 
 ## Report Issues
