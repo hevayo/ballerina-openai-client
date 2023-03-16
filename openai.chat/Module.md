@@ -1,17 +1,17 @@
-This is a generated connector for [OpenAI Chat API](https://beta.openai.com/docs/api-reference/chat) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Chat API provides a way to access state-of-the-art ChatGPT model (GPT-3.5) developed by OpenAI for a variety of tasks.
+This is a generated connector for the [OpenAI Chat API](https://beta.openai.com/docs/api-reference/chat) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Chat API provides a way to access the state-of-the-art ChatGPT model (GPT-3.5) developed by OpenAI for a variety of tasks.
 
 ## Prerequisites
 
 Before using this connector in your Ballerina application, complete the following:
 
-* Create an [OpenAI Account](https://beta.openai.com/signup/).
+* Create an [OpenAI account](https://beta.openai.com/signup/).
 * Obtain an API key by following [these instructions](https://platform.openai.com/docs/api-reference/authentication).
 
-## Quickstart
+## Quick start
 
 To use the OpenAI Chat connector in your Ballerina application, update the `.bal` file as follows:
 
-### Step 1: Import connector
+### Step 1: Import the connector
 First, import the `ballerinax/openai.chat` module into the Ballerina project.
 
 ```ballerina
@@ -20,7 +20,7 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `chat:Client` with the `apiKey` obtained.
+Create and initialize a `chat:Client` with the obtained `apiKey`.
 ```ballerina
     chat:Client chatClient = check new ({
         auth: {
@@ -29,8 +29,10 @@ Create and initialize `chat:Client` with the `apiKey` obtained.
     });
 ```
 
-### Step 3: Invoke connector operation
-1. Now you can use the operations available within the connector. Note that they are in the form of remote operations.
+### Step 3: Invoke the connector operation
+1. Now you can use the operations available within the connector. 
+
+>**Note:** These operations are in the form of remote operations.
 
     Following is an example on creating a conversation with the GPT-3.5 model:
 
