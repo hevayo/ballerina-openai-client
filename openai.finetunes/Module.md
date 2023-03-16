@@ -19,7 +19,8 @@ import ballerinax/openai.finetunes;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `finetunes:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `finetunes:Client` with the `apiKey` obtained.
+```ballerina
     finetunes:Client finetunesClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

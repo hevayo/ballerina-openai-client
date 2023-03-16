@@ -19,7 +19,8 @@ import ballerinax/openai.moderations;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `moderations:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `moderations:Client` with the `apiKey` obtained.
+```ballerina
     moderations:Client moderationsClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

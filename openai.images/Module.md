@@ -19,7 +19,8 @@ import ballerinax/openai.images;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `images:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `images:Client` with the `apiKey` obtained.
+```ballerina
     images:Client imagesClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

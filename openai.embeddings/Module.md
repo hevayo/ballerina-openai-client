@@ -19,7 +19,8 @@ import ballerinax/openai.embeddings;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `embeddings:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `embeddings:Client` with the `apiKey` obtained.
+```ballerina
     embeddings:Client embeddingsClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

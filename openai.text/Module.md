@@ -19,7 +19,8 @@ import ballerinax/openai.text;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `text:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `text:Client` with the `apiKey` obtained.
+```ballerina
     text:Client textClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

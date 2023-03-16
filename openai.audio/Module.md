@@ -19,7 +19,8 @@ import ballerinax/openai.audio;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `audio:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `audio:Client` with the `apiKey` obtained.
+```ballerina
     audio:Client audioClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"

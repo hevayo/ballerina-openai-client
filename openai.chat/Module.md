@@ -19,7 +19,8 @@ import ballerinax/openai.chat;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize `chat:Client` with the `apiKey` obtained.```ballerina
+Create and initialize `chat:Client` with the `apiKey` obtained.
+```ballerina
     chat:Client chatClient = check new ({
         auth: {
             token: "sk-XXXXXXXXX"
