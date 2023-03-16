@@ -3464,6 +3464,7 @@ components:
 
     Model:
       title: Model
+      additionalProperties: true
       properties:
         id:
           type: string
