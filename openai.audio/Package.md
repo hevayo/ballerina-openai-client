@@ -12,5 +12,5 @@ To report bugs, request new features, start new discussions, view project boards
 
 ## Useful Links
 - Discuss code changes of the Ballerina project via [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
-- Join the Ballerina community on [Slack](https://ballerina.io/community/slack/) to chat with the developers.
+- Join the Ballerina community on [Discord](https://discord.gg/ballerinalang) to chat with the developers.
 - Post technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
