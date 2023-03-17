@@ -1,3 +1,6 @@
+
+## Overview
+
 This is a generated connector for the [OpenAI `moderations` API](https://beta.openai.com/docs/api-reference/moderations) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Moderations API provides a way to access new moderation models developed by OpenAI for content moderation tasks.
 
 ## Prerequisites
@@ -55,6 +58,8 @@ Create and initialize a `moderations:Client` with the obtained `apiKey`.
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
+
+```ballerina
 import ballerinax/openai.moderations;
 import ballerina/io;
 

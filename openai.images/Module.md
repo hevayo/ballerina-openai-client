@@ -1,3 +1,6 @@
+
+## Overview
+
 This is a generated connector for the [OpenAI Images API](https://beta.openai.com/docs/api-reference/images) OpenAPI Specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Images API provides a way to access new DALL.E models developed by OpenAI for a variety of image-related tasks.
 
 ## Prerequisites
@@ -56,6 +59,8 @@ Create and initialize an `images:Client` with the obtained `apiKey`.
 2. Use the`bal run` command to compile and run the Ballerina program.
 
 ## Sample
+
+```ballerina
 import ballerinax/openai.images;
 import ballerina/io;
 
