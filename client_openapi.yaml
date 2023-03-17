@@ -2237,7 +2237,7 @@ components:
           type: object
           x-oaiTypeLabel: map
 
-          nullable: true
+
           description: &completions_logit_bias_description |
             Modify the likelihood of specified tokens appearing in the completion.
 
@@ -2423,7 +2423,7 @@ components:
           type: object
           x-oaiTypeLabel: map
 
-          nullable: true
+
           description: |
             Modify the likelihood of specified tokens appearing in the completion.
 

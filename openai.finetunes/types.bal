@@ -239,12 +239,12 @@ public type CreateFineTuneRequest record {|
     string suffix?;
 |};
 
-public type Model record {|
+public type Model record {
     string id;
     string 'object;
     int created;
     string owned_by;
-|};
+};
 
 public type ListFilesResponse record {|
     string 'object;
