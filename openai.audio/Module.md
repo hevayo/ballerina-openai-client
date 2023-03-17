@@ -37,11 +37,11 @@ Create and initialize an `audio:Client` with the obtained `apiKey`.
 
 >**Note:**  The operations are in the form of remote operations.
 
-    Following is an example on transcribing audio using the OpenAI Whisper-1 model:
+   Following is an example on transcribing audio using the OpenAI Whisper-1 model:
 
-    Transcribe with Whisper-1
+   Transcribe with Whisper-1
 
-    ```ballerina
+   ```ballerina
     public function main() returns error? {
         audio:CreateTranscriptionRequest req = {
             file: {fileContent: check io:fileReadBytes("sample.mp3"), fileName: "sample.mp3"},
@@ -54,7 +54,7 @@ Create and initialize an `audio:Client` with the obtained `apiKey`.
             io:println(unionResult);
         }
     }
-    ``` 
+   ``` 
 
 2. Use `bal run` command to compile and run the Ballerina program.
 
