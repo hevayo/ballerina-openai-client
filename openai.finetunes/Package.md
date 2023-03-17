@@ -51,7 +51,7 @@ Create and initialize a `finetunes:Client` with the obtained `apiKey`.
         };
         finetunes:OpenAIFile|error fineTuneResult = check finetunesClient->/files.post(req);
         if fineTuneResult is finetunes:OpenAIFile {
-            string fileID = fineTuneResult.id;
+            string fileId = fineTuneResult.id;
 
             finetunes:CreateFineTuneRequest createFineTuneRequest = {
                 model: "ada",
@@ -91,7 +91,7 @@ public function main() returns error? {
     };
     finetunes:OpenAIFile|error fineTuneResult = check finetunesClient->/files.post(req);
     if fineTuneResult is finetunes:OpenAIFile {
-        string fileID = fineTuneResult.id;
+        string fileId = fineTuneResult.id;
 
         finetunes:CreateFineTuneRequest createFineTuneRequest = {
             model: "ada",
