@@ -19,6 +19,8 @@ security:
 paths:
   /engines:
     get:
+      x-ballerina-display:
+        label: Get All Engines
       operationId: listEngines
       deprecated: true
       tags:
@@ -78,6 +80,8 @@ paths:
 
   /engines/{engine_id}:
     get:
+      x-ballerina-display:
+        label: Get Engine
       operationId: retrieveEngine
       deprecated: true
       tags:
@@ -130,6 +134,8 @@ paths:
 
   /completions:
     post:
+      x-ballerina-display:
+        label: Create Completion
       operationId: createCompletion
       tags:
         - OpenAI
@@ -219,6 +225,8 @@ paths:
           }
   /chat/completions:
     post:
+      x-ballerina-display:
+        label: Create Chat Completion
       operationId: createChatCompletion
       tags:
         - OpenAI
@@ -305,6 +313,8 @@ paths:
 
   /edits:
     post:
+      x-ballerina-display:
+        label: Create Edit
       operationId: createEdit
       tags:
         - OpenAI
@@ -382,6 +392,8 @@ paths:
 
   /images/generations:
     post:
+      x-ballerina-display:
+        label: Create Image
       operationId: createImage
       tags:
         - OpenAI
@@ -527,6 +539,8 @@ paths:
 
   /images/variations:
     post:
+      x-ballerina-display:
+        label: Create Image Variation
       operationId: createImageVariation
       tags:
         - OpenAI
@@ -592,6 +606,8 @@ paths:
 
   /embeddings:
     post:
+      x-ballerina-display:
+        label: Create Embeddings
       operationId: createEmbedding
       tags:
         - OpenAI
@@ -670,6 +686,8 @@ paths:
 
   /audio/transcriptions:
     post:
+      x-ballerina-display:
+        label: Create Transcription
       operationId: createTranscription
       tags:
         - OpenAI
@@ -729,6 +747,8 @@ paths:
 
   /audio/translations:
     post:
+      x-ballerina-display:
+        label: Create Translation
       operationId: createTranslation
       tags:
         - OpenAI
@@ -883,6 +903,8 @@ paths:
 
   /files:
     get:
+      x-ballerina-display:
+        label: List All Files
       operationId: listFiles
       tags:
         - OpenAI
@@ -938,6 +960,8 @@ paths:
             "object": "list"
           }
     post:
+      x-ballerina-display:
+        label: Upload File
       operationId: createFile
       tags:
         - OpenAI
@@ -1000,6 +1024,8 @@ paths:
 
   /files/{file_id}:
     delete:
+      x-ballerina-display:
+        label: Delete File
       operationId: deleteFile
       tags:
         - OpenAI
@@ -1047,6 +1073,8 @@ paths:
             "deleted": true
           }
     get:
+      x-ballerina-display:
+        label: Retrieve File
       operationId: retrieveFile
       tags:
         - OpenAI
@@ -1098,6 +1126,8 @@ paths:
 
   /files/{file_id}/content:
     get:
+      x-ballerina-display:
+        label: Retrieve File Content
       operationId: downloadFile
       tags:
         - OpenAI
@@ -1365,6 +1395,8 @@ paths:
 
   /fine-tunes:
     post:
+      x-ballerina-display:
+        label: Create fine-tune
       operationId: createFineTune
       tags:
         - OpenAI
@@ -1453,6 +1485,8 @@ paths:
             "updated_at": 1614807352,
           }
     get:
+      x-ballerina-display:
+        label: List fine-tunes
       operationId: listFineTunes
       tags:
         - OpenAI
@@ -1511,6 +1545,8 @@ paths:
 
   /fine-tunes/{fine_tune_id}:
     get:
+      x-ballerina-display:
+        label: Retrieve fine-tune
       operationId: retrieveFineTune
       tags:
         - OpenAI
@@ -1628,6 +1664,8 @@ paths:
 
   /fine-tunes/{fine_tune_id}/cancel:
     post:
+      x-ballerina-display:
+        label: Cancel fine-tune
       operationId: cancelFineTune
       tags:
         - OpenAI
@@ -1699,6 +1737,8 @@ paths:
 
   /fine-tunes/{fine_tune_id}/events:
     get:
+      x-ballerina-display:
+        label: Get fine-tune events
       operationId: listFineTuneEvents
       tags:
         - OpenAI
@@ -1795,6 +1835,8 @@ paths:
 
   /models:
     get:
+      x-ballerina-display:
+        label: List models
       operationId: listModels
       tags:
         - OpenAI
@@ -1854,6 +1896,8 @@ paths:
 
   /models/{model}:
     get:
+      x-ballerina-display:
+        label: Retrieve model
       operationId: retrieveModel
       tags:
         - OpenAI
@@ -1953,6 +1997,8 @@ paths:
 
   /moderations:
     post:
+      x-ballerina-display:
+        label: Create moderation
       operationId: createModeration
       tags:
         - OpenAI

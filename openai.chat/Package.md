@@ -41,11 +41,11 @@ Create and initialize a `chat:Client` with the obtained `apiKey`.
 
 >**Note:** These operations are in the form of remote operations.
 
-    Following is an example on creating a conversation with the GPT-3.5 model:
+   Following is an example on creating a conversation with the GPT-3.5 model:
 
-    Conversation with GPT-3.5-turbo
+   Conversation with GPT-3.5-turbo
 
-    ```ballerina
+   ```ballerina
     public function main() returns error? {
         chat:CreateChatCompletionRequest req = {
             model: "gpt-3.5-turbo",
@@ -58,7 +58,7 @@ Create and initialize a `chat:Client` with the obtained `apiKey`.
             io:println(unionResult);
         }
     }
-    ``` 
+   ``` 
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample
