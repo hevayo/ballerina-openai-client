@@ -20,7 +20,7 @@ import ballerina/mime;
 # This is a generated connector for the [OpenAI API] (https://platform.openai.com/docs/api-reference/introduction) specification. Use the OpenAI API to access the state-of-the-art
 # language models that can complete sentences, transcribe audio, and generate images. The API also supports natural language processing tasks such as text classification,
 # entity recognition, and sentiment analysis. By using the OpenAI API, you can incorporate advanced AI capabilities into your own applications and services.
-@display {label: "OpenAI", iconPath: "icon.png"}
+@display {label: "OpenAI Finetunes", iconPath: "icon.png"}
 public isolated client class Client {
     final http:Client clientEp;
     # Gets invoked to initialize the `connector`.
@@ -60,6 +60,7 @@ public isolated client class Client {
     # Returns a list of files that belong to the user's organization.
     #
     # + return - OK 
+    @display {label: "List All Files"}
     resource isolated function get files() returns ListFilesResponse|error {
         string resourcePath = string `/files`;
         ListFilesResponse response = check self.clientEp->get(resourcePath);
@@ -68,6 +69,7 @@ public isolated client class Client {
     # Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
     #
     # + return - OK 
+    @display {label: "Upload File"}
     resource isolated function post files(CreateFileRequest payload) returns OpenAIFile|error {
         string resourcePath = string `/files`;
         http:Request request = new;
@@ -80,6 +82,7 @@ public isolated client class Client {
     #
     # + file_id - The ID of the file to use for this request 
     # + return - OK 
+    @display {label: "Retrieve File"}
     resource isolated function get files/[string file_id]() returns OpenAIFile|error {
         string resourcePath = string `/files/${getEncodedUri(file_id)}`;
         OpenAIFile response = check self.clientEp->get(resourcePath);
@@ -89,6 +92,7 @@ public isolated client class Client {
     #
     # + file_id - The ID of the file to use for this request 
     # + return - OK 
+    @display {label: "Delete File"}
     resource isolated function delete files/[string file_id]() returns DeleteFileResponse|error {
         string resourcePath = string `/files/${getEncodedUri(file_id)}`;
         DeleteFileResponse response = check self.clientEp-> delete(resourcePath);
@@ -98,6 +102,7 @@ public isolated client class Client {
     #
     # + file_id - The ID of the file to use for this request 
     # + return - OK 
+    @display {label: "Retrieve File Content"}
     resource isolated function get files/[string file_id]/content() returns string|error {
         string resourcePath = string `/files/${getEncodedUri(file_id)}/content`;
         string response = check self.clientEp->get(resourcePath);
@@ -106,6 +111,7 @@ public isolated client class Client {
     # List your organization's fine-tuning jobs
     #
     # + return - OK 
+    @display {label: "List fine-tunes"}
     resource isolated function get 'fine\-tunes() returns ListFineTunesResponse|error {
         string resourcePath = string `/fine-tunes`;
         ListFineTunesResponse response = check self.clientEp->get(resourcePath);
@@ -118,6 +124,7 @@ public isolated client class Client {
     # [Learn more about Fine-tuning](/docs/guides/fine-tuning)
     #
     # + return - OK 
+    @display {label: "Create fine-tune"}
     resource isolated function post 'fine\-tunes(CreateFineTuneRequest payload) returns FineTune|error {
         string resourcePath = string `/fine-tunes`;
         http:Request request = new;
@@ -132,6 +139,7 @@ public isolated client class Client {
     #
     # + fine_tune_id - The ID of the fine-tune job 
     # + return - OK 
+    @display {label: "Retrieve fine-tune"}
     resource isolated function get 'fine\-tunes/[string fine_tune_id]() returns FineTune|error {
         string resourcePath = string `/fine-tunes/${getEncodedUri(fine_tune_id)}`;
         FineTune response = check self.clientEp->get(resourcePath);
@@ -141,6 +149,7 @@ public isolated client class Client {
     #
     # + fine_tune_id - The ID of the fine-tune job to cancel 
     # + return - OK 
+    @display {label: "Cancel fine-tune"}
     resource isolated function post 'fine\-tunes/[string fine_tune_id]/cancel() returns FineTune|error {
         string resourcePath = string `/fine-tunes/${getEncodedUri(fine_tune_id)}/cancel`;
         http:Request request = new;
@@ -153,6 +162,7 @@ public isolated client class Client {
     # + fine_tune_id - The ID of the fine-tune job to get events for. 
     # + 'stream - Whether to stream events for the fine-tune job. If set to true, events will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available. The stream will terminate with a `data: [DONE]` message when the job is finished (succeeded, cancelled, or failed). If set to false, only events generated so far will be returned. 
     # + return - OK 
+    @display {label: "Get fine-tune events"}
     resource isolated function get 'fine\-tunes/[string fine_tune_id]/events(boolean 'stream = false) returns ListFineTuneEventsResponse|error {
         string resourcePath = string `/fine-tunes/${getEncodedUri(fine_tune_id)}/events`;
         map<anydata> queryParam = {"stream": 'stream};
@@ -163,6 +173,7 @@ public isolated client class Client {
     # Lists the currently available models, and provides basic information about each one such as the owner and availability.
     #
     # + return - OK 
+    @display {label: "List models"}
     resource isolated function get models() returns ListModelsResponse|error {
         string resourcePath = string `/models`;
         ListModelsResponse response = check self.clientEp->get(resourcePath);
@@ -172,6 +183,7 @@ public isolated client class Client {
     #
     # + model - The ID of the model to use for this request 
     # + return - OK 
+    @display {label: "Retrieve model"}
     resource isolated function get models/[string model]() returns Model|error {
         string resourcePath = string `/models/${getEncodedUri(model)}`;
         Model response = check self.clientEp->get(resourcePath);

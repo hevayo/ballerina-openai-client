@@ -19,7 +19,7 @@ import ballerina/http;
 # This is a generated connector for the [OpenAI API] (https://platform.openai.com/docs/api-reference/introduction) specification. Use the OpenAI API to access the state-of-the-art
 # language models that can complete sentences, transcribe audio, and generate images. The API also supports natural language processing tasks such as text classification,
 # entity recognition, and sentiment analysis. By using the OpenAI API, you can incorporate advanced AI capabilities into your own applications and services.
-@display {label: "OpenAI", iconPath: "icon.png"}
+@display {label: "OpenAI Moderations", iconPath: "icon.png"}
 public isolated client class Client {
     final http:Client clientEp;
     # Gets invoked to initialize the `connector`.
@@ -59,6 +59,7 @@ public isolated client class Client {
     # Classifies if text violates OpenAI's Content Policy
     #
     # + return - OK 
+    @display {label: "Create moderation"}
     resource isolated function post moderations(CreateModerationRequest payload) returns CreateModerationResponse|error {
         string resourcePath = string `/moderations`;
         http:Request request = new;

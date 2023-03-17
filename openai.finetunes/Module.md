@@ -37,11 +37,11 @@ Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
 
  >**Note:** that they are in the form of remote operations.
 
-    Following is an example on fine tuning the GPT-3 ada model:
+   Following is an example on fine tuning the GPT-3 ada model:
 
-    Fine tune ada model
+   Fine tune ada model
 
-    ```ballerina
+   ```ballerina
     public function main() returns error? {
         finetunes:CreateFileRequest req = {
             file: {fileContent: check io:fileReadBytes("sample.jsonl"), fileName: "sample.jsonl"},
@@ -67,7 +67,7 @@ Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
             io:println(fineTuneResult);
         }
     }
-    ``` 
+   ``` 
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Sample

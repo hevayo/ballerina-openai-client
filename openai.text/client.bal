@@ -59,6 +59,7 @@ public isolated client class Client {
     # Creates a completion for the provided prompt and parameters
     #
     # + return - OK 
+    @display {label: "Create Completion"}
     resource isolated function post completions(CreateCompletionRequest payload) returns CreateCompletionResponse|error {
         string resourcePath = string `/completions`;
         http:Request request = new;
@@ -70,6 +71,7 @@ public isolated client class Client {
     # Creates a new edit for the provided input, instruction, and parameters.
     #
     # + return - OK 
+    @display {label: "Create Edit"}
     resource isolated function post edits(CreateEditRequest payload) returns CreateEditResponse|error {
         string resourcePath = string `/edits`;
         http:Request request = new;

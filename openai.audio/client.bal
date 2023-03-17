@@ -60,6 +60,7 @@ public isolated client class Client {
     # Transcribes audio into the input language.
     #
     # + return - OK 
+    @display {label: "Create Transcription"}
     resource isolated function post audio/transcriptions(CreateTranscriptionRequest payload) returns CreateTranscriptionResponse|error {
         string resourcePath = string `/audio/transcriptions`;
         http:Request request = new;
@@ -71,6 +72,7 @@ public isolated client class Client {
     # Translates audio into into English.
     #
     # + return - OK 
+    @display {label: "Create Translation"}
     resource isolated function post audio/translations(CreateTranslationRequest payload) returns CreateTranslationResponse|error {
         string resourcePath = string `/audio/translations`;
         http:Request request = new;

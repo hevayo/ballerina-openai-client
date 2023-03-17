@@ -59,6 +59,7 @@ public isolated client class Client {
     # Creates a completion for the chat message
     #
     # + return - OK 
+    @display {label: "Create Chat Completion"}
     resource isolated function post chat/completions(CreateChatCompletionRequest payload) returns CreateChatCompletionResponse|error {
         string resourcePath = string `/chat/completions`;
         http:Request request = new;

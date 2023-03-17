@@ -37,11 +37,11 @@ Create and initialize an `embeddings:Client` with the obtained `apiKey`.
 
 >**Note:** that they are in the form of remote operations.
 
-    Following is an example on obtaining embeddings from GPT-3 ada model:
+   Following is an example on obtaining embeddings from GPT-3 ada model:
 
-    Obtain embeddings from ada model
+   Obtain embeddings from ada model
 
-    ```ballerina
+   ```ballerina
     public function main() returns error? {
         embeddings:CreateEmbeddingRequest createEmbeddingRequest = {
             model: "text-embedding-ada-002",
@@ -54,7 +54,7 @@ Create and initialize an `embeddings:Client` with the obtained `apiKey`.
             io:println(unionResult);
         }
     }
-    ``` 
+   ``` 
 2. Use `bal run` command to compile and run the Ballerina program.
 
 ## Sample
