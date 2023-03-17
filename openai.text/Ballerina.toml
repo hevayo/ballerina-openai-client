@@ -6,7 +6,7 @@ name = "openai.text"
 icon = "icon.png"
 distribution = "2201.4.0"
 repository = "https://github.com/ballerina-platform/ballerinax-openapi-connectors"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Ballerina"]
 
 [build-options]
