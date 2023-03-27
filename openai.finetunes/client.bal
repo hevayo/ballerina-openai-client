@@ -103,9 +103,9 @@ public isolated client class Client {
     # + file_id - The ID of the file to use for this request 
     # + return - OK 
     @display {label: "Retrieve File Content"}
-    resource isolated function get files/[string file_id]/content() returns string|error {
+    resource isolated function get files/[string file_id]/content() returns byte[]|error {
         string resourcePath = string `/files/${getEncodedUri(file_id)}/content`;
-        string response = check self.clientEp->get(resourcePath);
+        byte[] response = check self.clientEp->get(resourcePath);
         return response;
     }
     # List your organization's fine-tuning jobs
@@ -128,7 +128,7 @@ public isolated client class Client {
     resource isolated function post 'fine\-tunes(CreateFineTuneRequest payload) returns FineTune|error {
         string resourcePath = string `/fine-tunes`;
         http:Request request = new;
-        json jsonBody = check payload.cloneWithType(json);
+        json jsonBody = payload.toJson();
         request.setPayload(jsonBody, "application/json");
         FineTune response = check self.clientEp->post(resourcePath, request);
         return response;
