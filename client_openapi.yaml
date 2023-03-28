@@ -1144,9 +1144,9 @@ paths:
         "200":
           description: OK
           content:
-            application/json:
-              schema:
-                type: string
+          # manually edited to support byte[] response
+            application/octet-stream:
+              schema: {}
       x-oaiMeta:
         name: Retrieve file content
         group: files

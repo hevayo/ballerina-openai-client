@@ -75,12 +75,12 @@ public type ProxyConfig record {|
     string password = "";
 |};
 
-public type ListFineTunesResponse record {|
+public type ListFineTunesResponse record {
     string 'object;
     FineTune[] data;
-|};
+};
 
-public type FineTune record {|
+public type FineTune record {
     string id;
     string 'object;
     int created_at;
@@ -94,20 +94,20 @@ public type FineTune record {|
     OpenAIFile[] validation_files;
     OpenAIFile[] result_files;
     FineTuneEvent[] events?;
-|};
+};
 
-public type ListFineTuneEventsResponse record {|
+public type ListFineTuneEventsResponse record {
     string 'object;
     FineTuneEvent[] data;
-|};
+};
 
-public type DeleteFileResponse record {|
+public type DeleteFileResponse record {
     string id;
     string 'object;
     boolean deleted;
-|};
+};
 
-public type OpenAIFile record {|
+public type OpenAIFile record {
     string id;
     string 'object;
     int bytes;
@@ -116,20 +116,20 @@ public type OpenAIFile record {|
     string purpose;
     string status?;
     record {}? status_details = ();
-|};
+};
 
-public type DeleteModelResponse record {|
+public type DeleteModelResponse record {
     string id;
     string 'object;
     boolean deleted;
-|};
+};
 
-public type FineTuneEvent record {|
+public type FineTuneEvent record {
     string 'object;
     int created_at;
     string level;
     string message;
-|};
+};
 
 public type CreateFileRequest record {|
     # Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
@@ -142,12 +142,12 @@ public type CreateFileRequest record {|
     string purpose;
 |};
 
-public type ListModelsResponse record {|
+public type ListModelsResponse record {
     string 'object;
     Model[] data;
-|};
+};
 
-public type CreateFineTuneRequest record {|
+public type CreateFineTuneRequest record {
     # The ID of an uploaded file that contains training data.
     # 
     # See [upload file](/docs/api-reference/files/upload) for how to upload a file.
@@ -238,7 +238,7 @@ public type CreateFineTuneRequest record {|
     # For example, a `suffix` of "custom-model-name" would produce a model name like `ada:ft-your-org:custom-model-name-2022-02-15-04-21-04`.
     @constraint:String {maxLength: 40, minLength: 1}
     string suffix?;
-|};
+};
 
 public type Model record {
     string id;
@@ -247,7 +247,7 @@ public type Model record {
     string owned_by;
 };
 
-public type ListFilesResponse record {|
+public type ListFilesResponse record {
     string 'object;
     OpenAIFile[] data;
-|};
+};
