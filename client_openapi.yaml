@@ -1144,6 +1144,7 @@ paths:
         "200":
           description: OK
           content:
+          # manually edited to support byte[] response
             application/octet-stream:
               schema: {}
       x-oaiMeta:
