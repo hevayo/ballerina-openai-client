@@ -78,14 +78,14 @@ public type ProxyConfig record {|
 @constraint:Array {minLength: 1}
 public type PromptItemsArray int[];
 
-public type CreateCompletionResponse_choices record {|
+public type CreateCompletionResponse_choices record {
     string text?;
     int index?;
     CreateCompletionResponse_logprobs? logprobs = ();
-    string finish_reason?;
-|};
+    string? finish_reason = ();
+};
 
-public type CreateEditRequest record {|
+public type CreateEditRequest record {
     # ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.
     string model;
     # The input text to use as a starting point for the edit.
@@ -102,23 +102,30 @@ public type CreateEditRequest record {|
     # 
     # We generally recommend altering this or `temperature` but not both.
     decimal? top_p = 1;
-|};
+};
 
-public type CreateEditResponse record {|
+public type CreateEditResponse record {
     string 'object;
     int created;
-    CreateCompletionResponse_choices[] choices;
+    CreateEditResponse_choices[] choices;
     CreateCompletionResponse_usage usage;
-|};
+};
 
-public type CreateCompletionResponse_logprobs record {|
+public type CreateCompletionResponse_logprobs record {
     string[] tokens?;
     decimal[] token_logprobs?;
     record {}[] top_logprobs?;
     int[] text_offset?;
-|};
+};
 
-public type CreateCompletionRequest record {|
+public type CreateEditResponse_choices record {
+    string text?;
+    int index?;
+    CreateCompletionResponse_logprobs? logprobs = ();
+    string finish_reason?;
+};
+
+public type CreateCompletionRequest record {
     # ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
     string model;
     # The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.
@@ -175,19 +182,19 @@ public type CreateCompletionRequest record {|
     record {} logit_bias?;
     # A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
     string user?;
-|};
+};
 
-public type CreateCompletionResponse record {|
+public type CreateCompletionResponse record {
     string id;
     string 'object;
     int created;
     string model;
     CreateCompletionResponse_choices[] choices;
     CreateCompletionResponse_usage usage?;
-|};
+};
 
-public type CreateCompletionResponse_usage record {|
+public type CreateCompletionResponse_usage record {
     int prompt_tokens;
     int completion_tokens;
     int total_tokens;
-|};
+};

@@ -41,7 +41,7 @@ Create and initialize a `text:Client` with the obtained `apiKey`.
 
     Following is an example on text completion using the OpenAI Davinci model:
 
-    Geenrate text with Davinci
+    Generate text with Davinci
 
     ```ballerina
     public function main() returns error? {
