@@ -63,7 +63,7 @@ public isolated client class Client {
     resource isolated function post completions(CreateCompletionRequest payload) returns CreateCompletionResponse|error {
         string resourcePath = string `/completions`;
         http:Request request = new;
-        json jsonBody = check payload.cloneWithType(json);
+        json jsonBody = payload.toJson();
         request.setPayload(jsonBody, "application/json");
         CreateCompletionResponse response = check self.clientEp->post(resourcePath, request);
         return response;
@@ -75,7 +75,7 @@ public isolated client class Client {
     resource isolated function post edits(CreateEditRequest payload) returns CreateEditResponse|error {
         string resourcePath = string `/edits`;
         http:Request request = new;
-        json jsonBody = check payload.cloneWithType(json);
+        json jsonBody = payload.toJson();
         request.setPayload(jsonBody, "application/json");
         CreateEditResponse response = check self.clientEp->post(resourcePath, request);
         return response;

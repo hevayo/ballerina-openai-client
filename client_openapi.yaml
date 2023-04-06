@@ -2339,6 +2339,7 @@ components:
                     items:
                       type: integer
               finish_reason:
+                nullable: true
                 type: string
         usage:
           type: object
